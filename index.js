@@ -4,7 +4,7 @@ const cors = require('cors');
 const app = express();
 const port = 3000;
 
-const { Student, sequelize} = require('./database');
+const { Student, sequelize } = require('./database');
 
 app.use(express.json());
 app.use(cors());
@@ -16,12 +16,12 @@ app.post('/cadastro', async (request, response) => {
         const media = (nota1 + nota2 + nota3) / 3;
         
         await Student.create({
-            matricula: matricula,
-            nome: nome,
-            nota1: nota1,
-            nota2: nota2,
-            nota3: nota3,
-            media: media
+            matricula,
+            nome,
+            nota1,
+            nota2,
+            nota3,
+            media
         });
         return response.status(201).send('Usuário criado com sucesso!');
         } catch (error) {
