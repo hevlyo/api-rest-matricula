@@ -14,7 +14,6 @@ app.post('/cadastro', async (request, response) => {
 
     try {
         const media = (nota1 + nota2 + nota3) / 3;
-        
         await Student.create({
             matricula,
             nome,
@@ -28,7 +27,6 @@ app.post('/cadastro', async (request, response) => {
         console.error('Erro no cadastro', error);
         return response.status(500).send('Erro no cadastro');
     }
-    
 });
 
 app.listen(port, () => {
